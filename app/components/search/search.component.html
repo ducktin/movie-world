@@ -5,17 +5,8 @@
             <option *ngFor="let cat of searchCategories" [value]="cat">{{cat}}</option>
         </select>
 
-        <div class="paging" *ngIf="maxPages > 1">
-            <button class="col-xs-4 btn btn-info" [disabled]="currentPage <= 1" (click)="currentPage=currentPage-1;getResults()">
-                <i class="glyphicon glyphicon-chevron-left"></i>
-            </button>
-            <div class="col-xs-4 page-numbers">
-                {{currentPage}}/{{maxPages}}
-            </div>
-            <button class="col-xs-4 btn btn-info" [disabled]="currentPage >= maxPages" (click)="currentPage=currentPage+1;getResults()">
-                <i class="glyphicon glyphicon-chevron-right"></i>
-            </button>
-        </div>
+        <paging-component (onPrevPage)="currentPage=currentPage-1;getResults()" (onNextPage)="currentPage=currentPage+1;getResults()"
+            [currentPage]="currentPage" [maxPages]="maxPages"></paging-component>
         <div class="cards-list">
             <div class="list-item" *ngIf="noResults">There are no results</div>
 
@@ -25,16 +16,7 @@
                 <person-list-item *ngIf="isPerson(result)" [person]="result"></person-list-item>
             </ng-template>
         </div>
-        <div class="paging" *ngIf="maxPages > 1">
-            <button class="col-xs-4 btn btn-info" [disabled]="currentPage <= 1" (click)="currentPage=currentPage-1;getResults()">
-                <i class="glyphicon glyphicon-chevron-left"></i>
-            </button>
-            <div class="col-xs-4 page-numbers">
-                {{currentPage}}/{{maxPages}}
-            </div>
-            <button class="col-xs-4 btn btn-info" [disabled]="currentPage >= maxPages" (click)="currentPage=currentPage+1;getResults()">
-                <i class="glyphicon glyphicon-chevron-right"></i>
-            </button>
-        </div>
+        <paging-component (onPrevPage)="currentPage=currentPage-1;getResults()" (onNextPage)="currentPage=currentPage+1;getResults()"
+            [currentPage]="currentPage" [maxPages]="maxPages"></paging-component>
     </div>
 </div>
