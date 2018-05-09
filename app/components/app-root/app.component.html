@@ -1,0 +1,40 @@
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" (click)="isNavbarCollapsed = !isNavbarCollapsed">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a routerLink="/" class="navbar-brand">{{title}}</a>
+      </div>
+      <div class="navbar-collapse" [class.collapse]="isNavbarCollapsed" id="navbar">
+        <ul class="nav navbar-nav">
+          <li [class.active]="router.isActive('/search', false)">
+            <a routerLink="/search">Search</a>
+          </li>
+          <li [class.active]="router.isActive('/movie/popular', false)">
+            <a routerLink="/movie/popular">Popular Movies</a>
+          </li>
+          <li [class.active]="router.isActive('/movie/top', false)">
+            <a routerLink="/movie/top">Top Rated Movies</a>
+          </li>
+          <li [class.active]="router.isActive('/show/popular', false)">
+            <a routerLink="/show/popular">Popular Tv Shows</a>
+          </li>
+          <li [class.active]="router.isActive('/show/top', false)">
+            <a routerLink="/show/top">Top Rated Tv Shows</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- <div class="col-lg-12 panel panel-default"> -->
+  <router-outlet></router-outlet>
+  <!-- TODO: Error message -->
+  <!-- </div> -->
+  <!-- <div class="col-lg-4 panel panel-default">
+    <popular-movies-page></popular-movies-page>
+  </div> -->
+</div>

@@ -1,0 +1,15 @@
+﻿<!-- <div class="col-lg-8 col-sm-offset-2 panel panel-info">
+    <div class="panel-body">
+        <input class="form-control" placeholder="Search..." [(ngModel)]="searchTerm" (keyup.enter)="getResults()">
+
+        <div class="cards-list">
+
+            <ng-template ngFor let-result [ngForOf]="(multiSearchResults | async)?.results">
+                <movie-list-item *ngIf="isMovie(result)" [movie]="result"></movie-list-item>
+                <tv-show-list-item *ngIf="isTvShow(result)" [tvShow]="result"></tv-show-list-item>
+                <person-list-item *ngIf="isPerson(result)" [person]="result"></person-list-item>
+            </ng-template>
+        </div>
+    </div>
+</div> -->
+<tv-show-list-item [tvShow]="(tvShow|async)"></tv-show-list-item>

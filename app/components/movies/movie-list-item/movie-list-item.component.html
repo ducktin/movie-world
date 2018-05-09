@@ -1,0 +1,15 @@
+﻿<div class="list-item" *ngIf="movie">
+    <a routerLink="/movie/{{movie.id}}">
+        <img *ngIf="movie.poster_path" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" alt="{{movie.title}}">
+        <img *ngIf="!movie.poster_path" src="http://via.placeholder.com/185x250" alt="Placeholder">
+    </a>
+    <a routerLink="/movie/{{movie.id}}">
+        <h3>{{movie.title}} ({{movie.release_date | slice:0:4}})</h3>
+    </a>
+    <h4 *ngIf="movie.vote_average !== 0">
+        {{movie.vote_average}}
+        <span class="glyphicon glyphicon-star"></span>
+    </h4>
+    <p>{{movie.overview | overview:250}}</p>
+    <div style="clear:both"></div>
+</div>

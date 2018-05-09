@@ -1,0 +1,15 @@
+﻿<div class="list-item" *ngIf="tvShow">
+    <a routerLink="/show/{{tvShow.id}}">
+        <img *ngIf="tvShow.poster_path" src="https://image.tmdb.org/t/p/w185{{tvShow.poster_path}}" alt="{{tvShow.title}}">
+        <img *ngIf="!tvShow.poster_path" src="http://via.placeholder.com/185x250" alt="Placeholder">
+    </a>
+    <a routerLink="/show/{{tvShow.id}}">
+        <h3>{{tvShow.name}}</h3>
+    </a>
+    <h4>
+        {{tvShow.vote_average}}
+        <span class="glyphicon glyphicon-star"></span>
+    </h4>
+    <p>{{tvShow.overview | overview:250}}</p>
+    <div style="clear:both"></div>
+</div>

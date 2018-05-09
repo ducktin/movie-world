@@ -1,0 +1,62 @@
+﻿<!-- <movie-list-item [movie]="(movie | async)"></movie-list-item> -->
+<div class="col-lg-12 panel panel-info" *ngIf="movie">
+    <div class="panel-body details">
+        <div class="row ">
+            <img class="col-xs-4" *ngIf="movie.poster_path" src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt="{{movie.title}}">
+            <img class="col-xs-4" *ngIf="!movie.poster_path" src="http://via.placeholder.com/300x450" alt="Placeholder">
+            <div class="col-xs-8">
+                <h3>{{movie.title}} ({{movie.release_date | slice:0:4}})</h3>
+                <h3 *ngIf="movie.vote_average !== 0">
+                    {{movie.vote_average}}
+                    <span class="glyphicon glyphicon-star"></span>
+                </h3>
+                <h4>Overview:</h4>
+                <p>{{movie.overview}}</p>
+            </div>
+        </div>
+        <div class="row" *ngIf="movieCredits">
+            <div class="col-xs-4">
+                <h4>Budget:</h4>
+                <p>{{movie.budget | currency:"USD"}}</p>
+                <h4>Revenue:</h4>
+                <p>{{movie.revenue | currency:"USD"}}</p>
+            </div>
+            <div class="col-xs-4">
+                <h4>Genres:</h4>
+                <ul class="list-unstyled">
+                    <li *ngFor="let genre of (movie.genres)">
+                        <p>{{genre.name}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-4">
+                <h4>Cast:</h4>
+                <ul class="list-unstyled">
+                    <li *ngFor="let person of (movieCredits.cast | slice:0:6)">
+                        <a routerLink="/person/{{person.id}}">{{person.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <!-- 
+    <img class="profile-picture pull-right" [src]="selectedCard.imageUrl">
+    <input class="form-control" *ngIf="editing" [(ngModel)]="selectedCard.imageUrl">
+    <h4 class="text-warning">{{selectedCard.firstName}} {{selectedCard.lastName}}
+        <i class="glyphicon glyphicon-pencil" (click)="editCard()" *ngIf="!editing"></i>
+    </h4>
+    <input class="form-control" *ngIf="editing" [(ngModel)]="selectedCard.firstName">
+    <input class="form-control" *ngIf="editing" [(ngModel)]="selectedCard.lastName">
+    <h6 class="text-warning">
+        <b>{{selectedCard.role}}</b> at
+        <b>
+            <a>{{getCompanyName(selectedCard.companyId)}}</a>
+        </b>
+    </h6>
+    <input class="form-control" *ngIf="editing" [(ngModel)]="selectedCard.role">
+    <select class="form-control" *ngIf="editing" [(ngModel)]="selectedCard.companyId">
+        <option *ngFor="let company of companies" [ngValue]="company.id">{{company.name}}</option>
+    </select>
+ -->
+</div>

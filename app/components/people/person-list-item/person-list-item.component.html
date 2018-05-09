@@ -1,0 +1,18 @@
+﻿<div class="list-item">
+    <a routerLink="/person/{{person.id}}">
+        <img class="img-thumbnail" *ngIf="person.profile_path" src="https://image.tmdb.org/t/p/w185{{person.profile_path}}" alt="{{person.name}}">
+        <img class="img-thumbnail" *ngIf="!person.profile_path" src="http://via.placeholder.com/185x250" alt="Placeholder">
+
+    </a>
+    <a routerLink="/person/{{person.id}}">
+        <h3>{{person.name}}</h3>
+    </a>
+    <h4>Known for:</h4>
+    <ul class="list-unstyled">
+        <li *ngFor="let ms of (person.known_for | slice:0:3)">
+            <a *ngIf="ms.media_type === 'movie'" routerLink="/movie/{{ms.id}}">{{ms.title}}</a>
+            <a *ngIf="ms.media_type === 'tv'" routerLink="/show/{{ms.id}}">{{ms.name}}</a>
+        </li>
+    </ul>
+    <div style="clear:both"></div>
+</div>

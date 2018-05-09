@@ -1,0 +1,64 @@
+﻿a {
+    cursor: pointer;
+}
+
+.cards-list a.active h6 {
+    font-weight: bold;
+    color: #00AA00;
+}
+
+.cards-list a h6 {
+    font-size: 1.1em;
+}
+
+.list-item {
+    display: block;
+    padding: 5px 8px;
+    border: 1px solid lightblue;
+    background: #EEEEFF;
+    color: #18bc9c;
+}
+
+.list-item li {
+    padding-left: 5px;
+}
+
+.list-item img {
+    width: 100px;
+    float: left;
+    margin: 10px 1em;
+}
+
+button[disabled='disabled'] {
+    color: darkgrey !important;
+}
+
+.paging .page-numbers {
+    text-align: center;
+    line-height: 45px;
+}
+
+img.profile-picture {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.details {
+    display: block;
+    padding: 5px 8px;
+    border: 1px solid lightblue;
+    background: #EEEEFF;
+    color: #18bc9c;
+}
+
+.details li {
+    list-style-type: none;
+    padding-left: 5px;
+}
+
+.details img {
+    width: 30%;
+    max-width: 300px;
+    float: left;
+    margin: 10px 1em;
+}

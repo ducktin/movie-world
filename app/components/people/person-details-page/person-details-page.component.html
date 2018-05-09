@@ -1,0 +1,53 @@
+﻿<!-- <person-list-item [person]="(person | async)"></person-list-item> -->
+<div class="col-lg-12 panel panel-info" *ngIf="person">
+    <div class="panel-body details">
+        <div class="row ">
+            <img class="col-xs-4" *ngIf="person.profile_path" src="https://image.tmdb.org/t/p/w300{{person.profile_path}}" alt="{{person.name}}">
+            <img class="col-xs-4" *ngIf="!person.profile_path" src="http://via.placeholder.com/300x450" alt="Placeholder">
+            <div class="col-xs-8">
+                <h3>{{person.name}} ({{person.birthday | slice:0:4}} - {{person.deathday | slice:0:4}})</h3>
+                <h4>Biography:</h4>
+                <p>{{person.biography}}</p>
+            </div>
+        </div>
+        <div class="row" *ngIf="combinedCredits">
+            <div class="col-xs-5 col-xs-offset-1">
+                <h4>Also Known As:</h4>
+                <ul class="list-unstyled">
+                    <li *ngFor="let name of (person.also_known_as | slice:0:6)">
+                        <p>{{name}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5 col-xs-offset-1">
+                <h4>Known For:</h4>
+                <ul class="list-unstyled">
+                    <li *ngFor="let cc of (combinedCredits.cast | slice:0:6)">
+                        <a *ngIf="cc.media_type==='movie'" routerLink="/movie/{{cc.id}}">{{cc.title}}</a>
+                        <a *ngIf="cc.media_type==='tv'" routerLink="/tv/{{cc.id}}">{{cc.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <!-- 
+        <img class="profile-picture pull-right" [src]="selectedCard.imageUrl">
+        <input class="form-control" *ngIf="editing" [(ngModel)]="selectedCard.imageUrl">
+        <h4 class="text-warning">{{selectedCard.firstName}} {{selectedCard.lastName}}
+            <i class="glyphicon glyphicon-pencil" (click)="editCard()" *ngIf="!editing"></i>
+        </h4>
+        <input class="form-control" *ngIf="editing" [(ngModel)]="selectedCard.firstName">
+        <input class="form-control" *ngIf="editing" [(ngModel)]="selectedCard.lastName">
+        <h6 class="text-warning">
+            <b>{{selectedCard.role}}</b> at
+            <b>
+                <a>{{getCompanyName(selectedCard.companyId)}}</a>
+            </b>
+        </h6>
+        <input class="form-control" *ngIf="editing" [(ngModel)]="selectedCard.role">
+        <select class="form-control" *ngIf="editing" [(ngModel)]="selectedCard.companyId">
+            <option *ngFor="let company of companies" [ngValue]="company.id">{{company.name}}</option>
+        </select>
+     -->
+</div>
