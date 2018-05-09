@@ -26,6 +26,7 @@ import { TopRatedMoviesPageComponent } from './components/movies/top-rated-movie
 import { TopRatedShowsPageComponent } from './components/tv-shows/top-rated-shows-page/top-rated-shows-page.component';
 import { SearchComponent } from './components/search/search.component';
 import { PersonService } from './services/person.service';
+import { PagingComponent } from './components/paging/paging.component';
 
 // kihívás: service keresés (map)
 // kihívás: pipe, interceptor
@@ -46,6 +47,7 @@ let routes: Route[] = [
   declarations: [
     OverviewPipe,
     AppComponent,
+    PagingComponent,
     SearchComponent,
     PopularMoviesPageComponent,
     PopularShowsPageComponent,
